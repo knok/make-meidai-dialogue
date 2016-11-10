@@ -40,18 +40,23 @@ def make_sequence_from_file(fname):
         except:
             sys.stderr.write("skip %s (not euc-jp)\n" % fname)
             sys.stderr.flush()
-    for seq in sequence:
-        print("input: %s\noutput: %s" % seq)
+            return []
+    return sequence
 
 def main():
     if not os.path.exists(nuc_dir):
         raise Exception("no extracted files.")
 
     files = os.listdir(nuc_dir)
+    uniq_seq = {}
     for f in files:
         if not ".txt" in f:
             continue
-        make_sequence_from_file(f)
+        seq = make_sequence_from_file(f)
+        for inp, out in seq:
+            uniq_seq[inp] = out
+    for k, v in uniq_seq.items():
+        print("input: %s\noutput: %s" % (k, v))
     return
 
 
