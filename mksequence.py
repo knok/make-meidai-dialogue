@@ -48,7 +48,6 @@ def main():
         if not ".txt" in f:
             continue
         make_sequence_from_file(f)
-        break
     return
 
 
