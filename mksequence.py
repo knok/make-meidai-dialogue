@@ -7,12 +7,12 @@ try:
     import codecs
     sys.stdout = codecs.getwriter('utf-8')(sys.stdout)
     def copen(fname, mode):
-        return codecs.open(fname, mode, "euc_jp")
+        return codecs.open(fname, mode, "utf-8")
 except:
     def copen(fname, mode):
-        return open(fname, mode, encoding='euc-jp')
+        return open(fname, mode, encoding='utf-8')
 
-nuc_dir = "nuc"
+nuc_dir = "nucc"
 
 def make_sequence_from_file(fname):
     fname = os.path.join(nuc_dir, fname)
