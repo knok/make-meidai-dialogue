@@ -2,9 +2,9 @@
 #
 
 # download page: https://nknet.ninjal.ac.jp/nuc/templates/nuc.html
-CORPUS_URL = https://nknet.ninjal.ac.jp/nuc/nuc.zip
-ZIP_FILE = nuc.zip
-UNZIP_DIR = nuc
+CORPUS_URL = http://mmsrv.ninjal.ac.jp/nucc/nucc.zip
+ZIP_FILE = nucc.zip
+UNZIP_DIR = nucc
 WGET = wget
 UNZIP = unzip
 PYTHON = python
@@ -25,8 +25,8 @@ $(SEQFILE): $(UNZIP_DIR)
 
 download: $(ZIP_FILE)
 
-nuc.zip:
+nucc.zip:
 	$(WGET) $(CORPUS_URL)
 
-$(UNZIP_DIR): nuc.zip
+$(UNZIP_DIR): nucc.zip
 	$(UNZIP) -x $(ZIP_FILE)
